@@ -20,7 +20,7 @@ watch -n1 -tc '
 used=$(free -w | awk "NR==2 {print \$3}")
 shared=$(free -w | awk "NR==2 {print \$5}")
 buff=$(free -w | awk "NR==2 {print \$6}")
-totalMemUsed=$((used+shared+buff))
+#totalMemUsed=$((used+shared+buff))
 totaluse=$(($totalMemUsed * 8 / 1000000))
 echo " $totaluse"
 totalmem=$(free -h | awk "NR==2 {print \$2}")
