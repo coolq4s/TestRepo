@@ -28,6 +28,8 @@ bar_length=$(echo "scale=0; $percentage / 2" | bc)
 progress=$percentage
 total=100
 memfree=$(free -h | awk "NR==2 {print \$4}")
+memused=$(free -h | awk "NR==2 {print \$3}")
+memtotal=$(free -h | awk "NR==2 {print \d$2}")
 
 # Fungsi untuk menggambar progress bar
 draw_progress_bar() {
@@ -38,7 +40,7 @@ draw_progress_bar() {
     printf "\e[31m%0.s|\e[0m" $(seq 1 $num_bar)
     printf "%0.s-" $(seq 1 $num_space)
     printf "] %d%%\r" $percent
-    printf ", Free : $memfree"
+    printf ", F: $memfree , U: $memused , T: $memtotal"
 }
 draw_progress_bar
 '
