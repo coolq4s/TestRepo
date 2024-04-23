@@ -21,9 +21,20 @@ shared=$(free -m | awk "NR==2 {print \$5}" | sed "s/Mi//g; s/Gi//g; s/Ki//g")
 buff=$(free -m | awk "NR==2 {print \$6}" | sed "s/Mi//g; s/Gi//g; s/Ki//g")
 totaluse=$(($used+$shared+$buff))
 totalmem=$(free -h | awk "NR==2 {print \$2}" | sed "s/Mi//g; s/Gi//g; s/Ki//g")
-echo " $totaluse"
-echo " $totalmem"
-
+percentage=$(echo "scale=2; ($totaluse / $totalmem) * 100" | bc)
+bar_length=$(echo "scale=0; $percentage / 2" | bc)
+echo "Total Usage: $totaluse"
+echo "Total Memory: $totalmem"
+echo "Percentage Used: $percentage%"
+printf " ["
+for ((i=0; i<$bar_length; i++)); do
+    printf "="
+done
+printf ">"
+for ((i=0; i<50-$bar_length; i++)); do
+    printf " "
+done
+printf "]"
 '
 
 read -p " Press any key to continue"
