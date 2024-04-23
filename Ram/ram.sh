@@ -18,7 +18,6 @@ rm -rf TestRepo
 clear
 
 watch -n 1 -tc '
-clear
 echo "=== RAM Usage ==="
 free -h | grep Mem | awk "{printf(\"Used: %s/%s\\n\", \$3, \$2)}"
 echo "--------------------"
@@ -26,7 +25,7 @@ echo "Memory Usage Bar:"
 
 mem_total=$(free | grep Mem | awk "{print \$2}")
 mem_used=$(free | grep Mem | awk "{print \$3}")
-mem_percent=$((mem_used * 100 / mem_total))
+mem_percent=$(echo "scale=2; $mem_used * 100 / $mem_total" | bc | awk '{printf "%d", $1}')
 
 bar_length=$((mem_percent / 2))
 bar_fill=$(printf "%0.s=" $(seq 1 $bar_length))
