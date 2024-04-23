@@ -22,7 +22,7 @@ shared=$(free -w | awk "NR==2 {print \$5}")
 buff=$(free -w | awk "NR==2 {print \$6}")
 totalMemUsed=$(($used+$shared+$buff))
 totaluse=$(($totalMemUsed * 8 / 1000000))
-echo "$totaluse"
+echo " $totaluse"
 totalmem=$(free -h | awk "NR==2 {print \$2}")
 percentage=$(echo "scale=2; ($totaluse / $totalmem) * 100" | bc)
 
