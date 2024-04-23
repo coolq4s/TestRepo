@@ -26,7 +26,34 @@ bar_length=$(echo "scale=0; $percentage / 2" | bc)
 echo "Total Usage: $totaluse"
 echo "Total Memory: $totalmem"
 echo "Percentage Used: $percentage%"
+
+
+# Misalkan variabel percentage memiliki nilai persentase
+
+# Hitung panjang bar
+bar_length=$((percentage / 2))
+
+# Cetak bar
+echo -n "\["
+for ((i=0; i<bar_length; i++))
+do
+    echo -n \=\
+done
+echo -n \>\
+
+# Cetak sisa bar
+for ((i=bar_length; i<50; i++))
+do
+    echo -n \ \
+done
+echo \]\
+
+echo "Persentase: $percentage%"
+
+
 '
+
+#!/bin/bash
 
 # Misalkan variabel percentage memiliki nilai persentase
 percentage=75
@@ -50,6 +77,7 @@ done
 echo ']'
 
 echo "Persentase: $percentage%"
+
 
 
 
