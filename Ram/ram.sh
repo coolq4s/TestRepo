@@ -16,6 +16,7 @@ trap cleanup EXIT
 clear
 
 watch -n1 -tc '
+freed=$(free -m | awk "NR==2 {print \$4}" | sed "s/Mi//g; s/Gi//g; s/Ki//g")
 used=$(free -m | awk "NR==2 {print \$3}" | sed "s/Mi//g; s/Gi//g; s/Ki//g")
 shared=$(free -m | awk "NR==2 {print \$5}" | sed "s/Mi//g; s/Gi//g; s/Ki//g")
 buff=$(free -m | awk "NR==2 {print \$6}" | sed "s/Mi//g; s/Gi//g; s/Ki//g")
@@ -38,7 +39,7 @@ draw_progress_bar() {
     printf " ["
     printf "\e[31m%0.s|\e[0m" $(seq 1 $num_bar)
     printf "%0.s-" $(seq 1 $num_space)
-    printf "] %d%%\r" $percent
+    printf "] %d%%\r" $percent / $freed%
 }
 draw_progress_bar
 '
