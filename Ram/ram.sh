@@ -35,6 +35,7 @@ memtotal=$(free -m | awk "NR==2 {print \$2}")
 
 memCount $(($memused+$membuff+$memshare))
 memTotalCount=$(echo "scale=2; $memCount * 8 / 1000000" | bc)
+echo "$memTotalCount"
 
 # Fungsi untuk menggambar progress bar
 draw_progress_bar() {
