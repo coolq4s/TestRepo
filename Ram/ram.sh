@@ -26,6 +26,7 @@ bar_length=$(echo "scale=0; $percentage / 2" | bc)
 echo "Total Usage: $totaluse"
 echo "Total Memory: $totalmem"
 echo "Percentage Used: $percentage%"
+echo -ne "#                          ($percentage%)\r"
 '
 
 
