@@ -22,7 +22,10 @@ echo "used value is $used"
 shared=$(free -w | awk "NR==2 {print \$5}")
 echo "shared value is $shared"
 buff=$(free -w | awk "NR==2 {print \$6}")
-echo "buff value is $buff"
+echo "buff value is $buff
+cache=$(free -w | awk "NR==2 {print \$7}")
+echo "cache value is $cache
+
 
 totalMemUsed=$((used+shared+buff))
 totaluse=$(($totalMemUsed * 8 / 1000000))
