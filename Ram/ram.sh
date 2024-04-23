@@ -40,7 +40,7 @@ draw_progress_bar() {
     printf "\e[31m%0.s|\e[0m" $(seq 1 $num_bar)
     printf "\e[92m%0.s-\e[0m" $(seq 1 $num_space)
     printf "] %d%%\r" $percent
-    printf ", \e[92mF: $memfree \e[31mU: $memused \e[0mT: $memtotal"
+    printf ", \u001b[42m: $memfree \u001b[41mU: $memused \e[0mT: $memtotal"
 }
 draw_progress_bar
 '
