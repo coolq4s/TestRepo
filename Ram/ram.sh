@@ -15,8 +15,6 @@ trap cleanup EXIT
 
 clear
 
-rm -rf TestRepo
-
 watch -t -n 1 '
 clear
 echo "=== RAM Usage ==="
