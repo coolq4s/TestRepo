@@ -43,7 +43,7 @@ draw_progress_bar() {
     printf ",\033[102m\033[30m F: $memfree \033[101m\033[30m U: $memused \e[0m T: $memtotal"
 }
 draw_progress_bar
-echo -e "\n"
+echo "\n"
 #SWAP
 used_swap=$(free -m | awk "NR==3 {print \$3}" | sed "s/Mi//g; s/Gi//g; s/Ki//g")
 totaluse_swap=$(free -m | awk "NR==3 {print \$4}" | sed "s/Mi//g; s/Gi//g; s/Ki//g")
