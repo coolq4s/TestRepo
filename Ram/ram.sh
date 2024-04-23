@@ -30,7 +30,7 @@ echo "cache value is $cache"
 totalMemUsed=$(($used + $shared + $buff + $cache))
 
 
-totaluse=$(($totalMemUsed * 8 / 1000))
+totaluse=$(($totalMemUsed * 8 / 10000))
 echo " $totaluse"
 totalmem=$(free -h | awk "NR==2 {print \$2}")
 percentage=$(echo "scale=2; ($totaluse / $totalmem) * 100" | bc)
