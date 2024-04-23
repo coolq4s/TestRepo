@@ -29,7 +29,7 @@ echo " Total Memory: $totalmem"
 # Inisialisasi variabel
 progress=$percentage
 total=100
-memfree=$(free -m | awk "NR==2 {print \$4}")
+memfree=$(free -h | awk "NR==2 {print \$4}")
 
 # Fungsi untuk menggambar progress bar
 draw_progress_bar() {
