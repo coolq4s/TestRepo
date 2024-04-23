@@ -30,6 +30,8 @@ total=100
 memfree=$(free -h | awk "NR==2 {print \$4}")
 memused=$(free -h | awk "NR==2 {print \$3}")
 memtotal=$(free -h | awk "NR==2 {print \$2}")
+xttl=$(($memfree+$memused))
+echo " $xttl"
 
 # Fungsi untuk menggambar progress bar
 draw_progress_bar() {
