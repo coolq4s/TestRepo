@@ -28,4 +28,29 @@ echo "Total Memory: $totalmem"
 echo "Percentage Used: $percentage%"
 '
 
+# Misalkan variabel percentage memiliki nilai persentase
+percentage=75
+
+# Hitung panjang bar
+bar_length=$((percentage / 2))
+
+# Cetak bar
+echo -n '['
+for ((i=0; i<bar_length; i++))
+do
+    echo -n '='
+done
+echo -n '>'
+
+# Cetak sisa bar
+for ((i=bar_length; i<50; i++))
+do
+    echo -n ' '
+done
+echo ']'
+
+echo "Persentase: $percentage%"
+
+
+
 read -p " Press any key to continue"
