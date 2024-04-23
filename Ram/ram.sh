@@ -13,7 +13,6 @@ cleanup() {
 
 trap cleanup EXIT
 
-rm -rf TestRepo
 
 clear
 
