@@ -18,22 +18,13 @@ rm -rf TestRepo
 clear
 
 
-watch -n 1 -tc '
-echo "=== RAM Usage ==="
-free -h | grep Mem | awk "{printf(\"Used: %s/%s\\n\", \$3, \$2)}"
-echo "--------------------"
-echo "Memory Usage Bar:"
-
-mem_total=$(free | grep Mem | awk "{print \$2}")
-mem_used=$(free | grep Mem | awk "{print \$3}")
-mem_percent=$(echo "scale=2; $mem_used * 100 / $mem_total" | bc | awk "{printf(\"%.0f\", \$1)}")
-
-bar_length=$((mem_percent / 2))
-bar_fill=$(printf "%0.s=" $(seq 1 $bar_length))
-bar_empty=$(printf "%0.s " $(seq $((50 - bar_length)) 50))
-
-echo -e "[$bar_fill$bar_empty] $mem_percent%"
-'
+i=1
+sp="/-\|"
+echo -n ' '
+while true
+do
+    printf "\b${sp:i++%${#sp}:1}"
+done
 
 
 
