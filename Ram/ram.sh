@@ -61,7 +61,7 @@ swaptotal=$(free -m | awk "NR==2 {print \$2}")
 # Fungsi untuk menggambar progress bar swap
 draw_progress_bar_swap() {
     local percentswap=$((progressSwap * 100 / totalswap))
-    local num_bar_swap=$((percentswal / 3))
+    local num_bar_swap=$((percentswap / 3))
     local num_space_swap=$((33 - num_bar_swap))
     printf " SWAP ["
     printf "\033[91m%0.s|\e[0m" $(seq 1 $num_bar_swap)
