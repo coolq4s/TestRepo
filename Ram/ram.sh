@@ -17,12 +17,13 @@ clear
 
 watch -n1 -tc '
 #RAM
-used=$(free -m | awk "NR==2 {print \$3}" | sed "s/Mi//g; s/Gi//g; s/Ki//g")
-shared=$(free -m | awk "NR==2 {print \$5}" | sed "s/Mi//g; s/Gi//g; s/Ki//g")
-buff=$(free -m | awk "NR==2 {print \$6}" | sed "s/Mi//g; s/Gi//g; s/Ki//g")
+used=$(free -w | awk "NR==2 {print \$3}")
+shared=$(free -w | awk "NR==2 {print \$5}")
+buff=$(free -w | awk "NR==2 {print \$6}")
+echo -e "$used"
 totaluse=$(($used+$shared+$buff))
-totalmem=$(free -h | awk "NR==2 {print \$2}" | sed "s/Mi//g; s/Gi//g; s/Ki//g")
-percentage=$(echo "scale=2; ($totaluse / $totalmem) * 100" | bc | sed "s/.00//g; s/Gi//g; s/Ki//g")
+totalmem=$(free -h | awk "NR==2 {print \$2}")
+percentage=$(echo "scale=2; ($totaluse / $totalmem) * 100" | bc)
 
 # Inisialisasi variabel
 progress=$percentage
