@@ -34,7 +34,7 @@ memtotal=$(free -h | awk "NR==2 {print \$2}")
 # Fungsi untuk menggambar progress bar
 draw_progress_bar() {
     local percent=$((progress * 100 / total))
-    local num_bar=$((100 / 3))
+    local num_bar=$((percent / 3))
     local num_space=$((33 - num_bar))
     printf " RAM ["
     printf "\033[91m%0.s|\e[0m" $(seq 1 $num_bar)
