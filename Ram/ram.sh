@@ -17,8 +17,8 @@ clear
 
 watch -n1 -tc '
 #RAM
-used=$(free -w | awk "NR==2 {print \$3}")
-echo "$used"
+memuse=$(free -w | awk "NR==2 {print \$3}")
+echo "$memuse"
 shared=$(free -w | awk "NR==2 {print \$5}")
 echo "shared value is $shared"
 buff=$(free -w | awk "NR==2 {print \$6}")
@@ -27,7 +27,7 @@ cache=$(free -w | awk "NR==2 {print \$7}")
 echo "cache value is $cache"
 
 
-totalMemUsed=$(used + shared + buff + cache)
+totalMemUsed=$(memuse + shared + buff + cache)
 echo "$totalMemUsed"
 
 
