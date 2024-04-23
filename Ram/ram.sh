@@ -15,9 +15,9 @@ trap cleanup EXIT
 
 clear
 
-used=$(free -h | awk 'NR==3 {print $3}' | sed "s/Mi//g; s/Gi//g; s/Ki//g")
-shared=$(free -h | awk 'NR==5 {print $5}' | sed "s/Mi//g; s/Gi//g; s/Ki//g")
-buff=$(free -h | awk 'NR==6 {print $6}' | sed "s/Mi//g; s/Gi//g; s/Ki//g")
+used=$(free -h | awk 'NR==2 {print $3}' | sed "s/Mi//g; s/Gi//g; s/Ki//g")
+shared=$(free -h | awk 'NR==2 {print $5}' | sed "s/Mi//g; s/Gi//g; s/Ki//g")
+buff=$(free -h | awk 'NR==2 {print $6}' | sed "s/Mi//g; s/Gi//g; s/Ki//g")
 total=$(free -h | awk 'NR==2 {print $2}' | sed "s/Mi//g; s/Gi//g; s/Ki//g")
 
 echo -e "$used"
