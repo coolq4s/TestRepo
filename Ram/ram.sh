@@ -32,7 +32,6 @@ echo " $used"
 #echo -e " $bbs"
 #free -h
 
-echo -e " $total"
 
 
 read -p " Press any key to continue"
