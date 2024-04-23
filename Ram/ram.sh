@@ -15,7 +15,7 @@ trap cleanup EXIT
 
 clear
 
-watch -t -n 1 '
+watch -n 1 '
 clear
 echo "=== RAM Usage ==="
 free -h | grep Mem | awk "{printf(\"Used: %s/%s\\n\", \$3, \$2)}"
