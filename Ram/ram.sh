@@ -16,7 +16,6 @@ trap cleanup EXIT
 clear
 
 watch -n1 -tc '
-freed=$(free -m | awk "NR==2 {print \$4}")
 used=$(free -m | awk "NR==2 {print \$3}" | sed "s/Mi//g; s/Gi//g; s/Ki//g")
 shared=$(free -m | awk "NR==2 {print \$5}" | sed "s/Mi//g; s/Gi//g; s/Ki//g")
 buff=$(free -m | awk "NR==2 {print \$6}" | sed "s/Mi//g; s/Gi//g; s/Ki//g")
@@ -30,6 +29,7 @@ echo " Total Memory: $totalmem"
 # Inisialisasi variabel
 progress=$percentage
 total=100
+memfree=$(free -m | awk "NR==2 {print \$4}")
 
 # Fungsi untuk menggambar progress bar
 draw_progress_bar() {
@@ -39,7 +39,7 @@ draw_progress_bar() {
     printf " ["
     printf "\e[31m%0.s|\e[0m" $(seq 1 $num_bar)
     printf "%0.s-" $(seq 1 $num_space)
-    printf "] %d%%\r" $percent | Free : $freed
+    printf "] %d%%\r" $percent, $memfree Free
 }
 draw_progress_bar
 '
