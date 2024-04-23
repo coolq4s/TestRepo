@@ -28,6 +28,7 @@ echo "cache value is $cache"
 
 
 totalMemUsed=$(used + shared + buff + cache)
+echo "$totalMemUsed"
 
 
 totaluse=$(($totalMemUsed * 8 / 10000))
