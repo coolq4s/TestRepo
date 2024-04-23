@@ -36,8 +36,8 @@ draw_progress_bar() {
     local num_bar=$((percent / 2))
     local num_space=$((50 - num_bar))
     printf "["
-    printf "%0.s#" $(seq 1 $num_bar)
-    printf "%0.s " $(seq 1 $num_space)
+    printf "%0.s=" $(seq 1 $num_bar)
+    printf "%0.s-" $(seq 1 $num_space)
     printf "] %d%%\r" $percent
 }
 draw_progress_bar
