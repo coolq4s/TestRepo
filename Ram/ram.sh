@@ -49,7 +49,7 @@ memtotal=$(free -m | awk "NR==2 {print \$2}")
 #echo "$memCount"
 
 # Fungsi untuk menggambar progress bar
-draw_progress_bar() {
+#draw_progress_bar() {
     local percent=$((progress * 100 / total))
     local num_bar=$((percent / 4))
     local num_space=$((25 - num_bar))
