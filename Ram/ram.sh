@@ -38,7 +38,7 @@ draw_progress_bar() {
     printf "["
     echo -e "\e[31m"
     printf "%0.s|" $(seq 1 $num_bar)
-    echo -e "\e[0m
+    echo -e "\e[0m"
     printf "%0.s-" $(seq 1 $num_space)
     printf "] %d%%\r" $percent
 }
