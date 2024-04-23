@@ -33,8 +33,8 @@ total=100
 # Fungsi untuk menggambar progress bar
 draw_progress_bar() {
     local percent=$((progress * 100 / total))
-    local num_bar=$((percent / 6))
-    local num_space=$((17 - num_bar))
+    local num_bar=$((percent / 3))
+    local num_space=$((33 - num_bar))
     printf " ["
     printf "\e[31m%0.s|\e[0m" $(seq 1 $num_bar)
     printf "%0.s-" $(seq 1 $num_space)
