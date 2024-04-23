@@ -27,33 +27,28 @@ echo "Total Usage: $totaluse"
 echo "Total Memory: $totalmem"
 echo "Percentage Used: $percentage%"
 
-
-bar_size=$percentage
-bar_char_done="#"
-bar_char_todo="-"
-bar_percentage_scale=2
-
-function show_progress {
-    current="$1"
-    total="$2"
-
-    # calculate the progress in percentage 
-    percent=$(bc <<< "scale=$bar_percentage_scale; 100 * $current / $total" )
-    # The number of done and todo characters
-    done=$(bc <<< "scale=0; $bar_size * $percent / 100" )
-    todo=$(bc <<< "scale=0; $bar_size - $done" )
-
-    # build the done and todo sub-bars
-    done_sub_bar=$(printf "%${done}s" | tr " " "${bar_char_done}")
-    todo_sub_bar=$(printf "%${todo}s" | tr " " "${bar_char_todo}")
-
-    # output the bar
-    echo -ne "\rProgress : [${done_sub_bar}${todo_sub_bar}] ${percent}%"
-
-    if [ $total -eq $current ]; then
-        echo -e "\nDONE"
-    fi
+progress_bar() {
+  local duration=${1}
+    
+  already_done() { for ((done=0; done<$1; done++)); do printf "#"; done }
+  remaining() { for ((remain=$1; remain<$duration; remain++)); do printf " "; done }
+  percentage() { printf "| %s%%" $(( (($1)*100)/($duration)*100/100 )); }
+  clean_line() { printf "\r"; }
+ 
+  for (( current_duration=1; current_duration<=$duration; current_duration++ )); do
+    already_done $current_duration
+    remaining $current_duration
+    percentage $current_duration
+    clean_line
+    sleep 1
+  done
+ 
+  clean_line
 }
+ 
+# Call the function with the specific duration
+progress_bar $percentage
+
 '
 
 read -p " Press any key to continue"
