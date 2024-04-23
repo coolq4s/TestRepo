@@ -27,7 +27,7 @@ percentage=$(echo "scale=2; ($totaluse / $totalmem) * 100" | bc | sed "s/.00//g;
 # Inisialisasi variabel
 progress=$percentage
 total=100
-memfree=$(free -w | awk "NR==2 {print \$4}")
+memfree=$(free -m | awk "NR==2 {print \$4}")
 memused=$(free -w | awk "NR==2 {print \$3}")
 membuff=$(free -w | awk "NR==2 {print \$6}")
 memshare=$(free -w | awk "NR==2 {print \$5}")
