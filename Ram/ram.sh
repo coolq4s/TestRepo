@@ -39,7 +39,7 @@ draw_progress_bar() {
     printf " ["
     printf "\e[31m%0.s|\e[0m" $(seq 1 $num_bar)
     printf "%0.s-" $(seq 1 $num_space)
-    printf "] %d%%\r" $percent | Free $freed
+    printf "] %d%%\r" $percent | Free : $freed
 }
 draw_progress_bar
 '
