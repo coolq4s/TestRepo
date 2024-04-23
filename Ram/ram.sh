@@ -15,16 +15,22 @@ trap cleanup EXIT
 
 clear
 
-used=$(free -h | awk 'NR==2 {print $3}' | sed "s/Mi//g; s/Gi//g; s/Ki//g")
-shared=$(free -h | awk 'NR==2 {print $5}' | sed "s/Mi//g; s/Gi//g; s/Ki//g")
-buff=$(free -h | awk 'NR==2 {print $6}' | sed "s/Mi//g; s/Gi//g; s/Ki//g")
-total=$(free -h | awk 'NR==2 {print $2}' | sed "s/Mi//g; s/Gi//g; s/Ki//g")
+watch -n1 -tc '
+used=$(free -h | awk "NR==2 {print $3}" | sed "s/Mi//g; s/Gi//g; s/Ki//g")
+echo " $used"
+'
 
-totalused=$(($used+$shared+$buff))
-echo -e " $totalused"
-bbs=$(free -h | awk 'NR==2 {print $4}' | sed "s/Mi//g; s/Gi//g; s/Ki//g")
-echo -e " $bbs"
-free -h
+
+#used=$(free -h | awk 'NR==2 {print $3}' | sed "s/Mi//g; s/Gi//g; s/Ki//g")
+#shared=$(free -h | awk 'NR==2 {print $5}' | sed "s/Mi//g; s/Gi//g; s/Ki//g")
+#buff=$(free -h | awk 'NR==2 {print $6}' | sed "s/Mi//g; s/Gi//g; s/Ki//g")
+#total=$(free -h | awk 'NR==2 {print $2}' | sed "s/Mi//g; s/Gi//g; s/Ki//g")
+
+#totalused=$(($used+$shared+$buff))
+#echo -e " $totalused"
+#bbs=$(free -h | awk 'NR==2 {print $4}' | sed "s/Mi//g; s/Gi//g; s/Ki//g")
+#echo -e " $bbs"
+#free -h
 
 echo -e " $total"
 
