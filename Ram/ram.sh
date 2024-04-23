@@ -35,9 +35,9 @@ draw_progress_bar() {
     local percent=$((progress * 100 / total))
     local num_bar=$((percent / 2))
     local num_space=$((50 - num_bar))
-    printf "["
+    printf " ["
     echo -e ""
-    printf "\e[31m%0.s|\e[0m" $(seq 1 $num_bar)
+    printf " \e[31m%0.s|\e[0m" $(seq 1 $num_bar)
     printf "%0.s-" $(seq 1 $num_space)
     printf "] %d%%\r" $percent
 }
