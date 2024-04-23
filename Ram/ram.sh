@@ -15,7 +15,7 @@ trap cleanup EXIT
 
 clear
 
-total= (free -h | awk 'NR==2 {print $2}')
+total=(free -h | awk 'NR==2 {print $2}')
 echo -e "$total"
 
 read -p " Press any key to continue"
