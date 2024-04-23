@@ -18,6 +18,6 @@ rm -rf TestRepo
 clear
 
 
-free -h | awk 'print $2';
+free -h | awk 'NR==2 {print $2}';
 
 read -p "press enter to continue"
