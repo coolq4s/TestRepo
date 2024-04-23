@@ -18,21 +18,7 @@ rm -rf TestRepo
 clear
 
 
-sp="/-\|"
-sc=0
-spin() {
-   printf "\b${sp:sc++:1}"
-   ((sc==${#sp})) && sc=0
-}
-endspin() {
-   printf "\r%s\n" "$@"
-}
-
-until work_done; do
-   spin
-   ping -c 10 google com
-done
-endspin
+free -h | awk 'NR==2 {print $2}'
 
 
 
