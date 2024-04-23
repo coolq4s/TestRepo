@@ -1,4 +1,19 @@
-#!/bin/bash
+#!bin/bash
+cleanup() {
+    rm -rf ram.sh
+    rm -rf TestRepo
+    echo " Cleaning up temporary files"
+    echo ""
+    echo ""
+    echo -e " To try again this script,\n you can copy the command from github"
+    echo ""
+    echo ""
+}
+
+trap cleanup EXIT
+
+clear
+
 rm -rf TestRepo
 
 watch -t -n 1 '
@@ -19,4 +34,4 @@ bar_empty=$(printf "%0.s " $(seq $((50 - bar_length)) 50))
 echo -e "[$bar_fill$bar_empty] $mem_percent%"
 '
 
-rm -rf ram sh
+exit
