@@ -37,7 +37,7 @@ draw_progress_bar() {
     local num_bar=$((percent / 3))
     local num_space=$((33 - num_bar))
     printf " RAM ["
-    printf "\e[31m%0.s|\e[0m" $(seq 1 $num_bar)
+    printf "\033[91m%0.s|\e[0m" $(seq 1 $num_bar)
     printf "\033[92m%0.s-\e[0m" $(seq 1 $num_space)
     printf "] %d%%\r" $percent
     printf ", \033[102m\033[30mF: $memfree U: $memused \e[0mT: $memtotal"
