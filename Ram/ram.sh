@@ -26,15 +26,6 @@ bar_length=$(echo "scale=0; $percentage / 2" | bc)
 echo "Total Usage: $totaluse"
 echo "Total Memory: $totalmem"
 echo "Percentage Used: $percentage%"
-printf " ["
-for ((i=0; i<$bar_length; i++)); do
-    printf "="
-done
-printf ">"
-for ((i=0; i<50-$bar_length; i++)); do
-    printf " "
-done
-printf "]"
 '
 
 read -p " Press any key to continue"
