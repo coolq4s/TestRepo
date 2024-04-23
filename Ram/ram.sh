@@ -13,9 +13,7 @@ cleanup() {
 
 trap cleanup EXIT
 
-
 clear
-
 
 free -h | awk ' NR==2 {print $2}';
 
