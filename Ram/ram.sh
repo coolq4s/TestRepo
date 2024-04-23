@@ -36,7 +36,7 @@ draw_progress_bar() {
     local percent=$((progress * 100 / total))
     local num_bar=$((percent / 3))
     local num_space=$((33 - num_bar))
-    printf " RAM ["
+    printf " RAM  ["
     printf "\033[91m%0.s|\e[0m" $(seq 1 $num_bar)
     printf "\033[92m%0.s-\e[0m" $(seq 1 $num_space)
     printf "] %d%%\r" $percent
