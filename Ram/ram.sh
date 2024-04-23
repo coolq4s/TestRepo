@@ -27,11 +27,18 @@ percentage=$(echo "scale=2; ($totaluse / $totalmem) * 100" | bc | sed "s/.00//g;
 # Inisialisasi variabel
 progress=$percentage
 total=100
-memfree=$(free -h | awk "NR==2 {print \$4}")
-memused=$(free -h | awk "NR==2 {print \$3}")
-memtotal=$(free -h | awk "NR==2 {print \$2}")
-xttl=$(($memfree+$memused))
-echo " $xttl"
+memfree=$(free -w | awk "NR==2 {print \$4}")
+memused=$(free -w | awk "NR==2 {print \$3}")
+memtotal=$(free -m | awk "NR==2 {print \$2}")
+A=196788
+B=287645
+
+megabitA=$(echo "scale=2; $A * 8 / 1000000" | bc)
+megabitB=$(echo "scale=2; $B * 8 / 1000000" | bc)
+
+echo "Variabel A dalam Megabit: $megabitA Mb"
+echo "Variabel B dalam Megabit: $megabitB Mb"
+
 
 # Fungsi untuk menggambar progress bar
 draw_progress_bar() {
