@@ -25,9 +25,6 @@ percentage=$(echo "scale=2; ($totaluse / $totalmem) * 100" | bc | sed "s/.00//g;
 bar_length=$(echo "scale=0; $percentage / 2" | bc)
 echo "Total Usage: $totaluse"
 echo "Total Memory: $totalmem"
-echo "Percentage Used: $percentage%"
-
-
 
 # Inisialisasi variabel
 progress=$percentage
