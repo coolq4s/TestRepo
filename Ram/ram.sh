@@ -54,9 +54,9 @@ percentage_swap=$(echo "scale=2; ($totaluse_swap / $total_swap) * 100" | bc | se
 # Inisialisasi variabel
 progressSwap=$percentage_swap
 totalswap=100
-swapfree=$(free -m | awk "NR==2 {print \$4}")
-swapused=$(free -m | awk "NR==2 {print \$3}")
-swaptotal=$(free -m | awk "NR==2 {print \$2}")
+swapfree=$(free -m | awk "NR==3 {print \$4}")
+swapused=$(free -m | awk "NR==3 {print \$3}")
+swaptotal=$(free -m | awk "NR==3 {print \$2}")
 
 # Fungsi untuk menggambar progress bar swap
 draw_progress_bar_swap() {
