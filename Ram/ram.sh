@@ -17,7 +17,7 @@ rm -rf TestRepo
 
 clear
 
-watch -t -n 1 '
+watch -n 1 -tc'
 clear
 echo "=== RAM Usage ==="
 free -h | grep Mem | awk "{printf(\"Used: %s/%s\\n\", \$3, \$2)}"
