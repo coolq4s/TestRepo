@@ -15,7 +15,7 @@ trap cleanup EXIT
 
 clear
 
-total=$(watch -n 1 '(free -h | awk 'NR==2 {print $2}' | sed 's/Mi//g; s/Gi//g; s/Ki//g')')
+total=$(free -h | awk 'NR==2 {print $2}' | sed 's/Mi//g; s/Gi//g; s/Ki//g')
 echo -e " $total"
 
 read -p " Press any key to continue"
