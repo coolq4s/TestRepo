@@ -19,4 +19,4 @@ clear
 
 free -h | awk 'NR==2 {print $2}';
 
-read -n -p "Press any key to continue"
+read  -p "Press any key to continue"
