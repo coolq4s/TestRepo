@@ -43,16 +43,7 @@ draw_progress_bar() {
     printf "%0.s " $(seq 1 $num_space)
     printf "] %d%%\r" $percent
 }
-
-# Loop untuk simulasi progres
-while [ $progress -lt $total ]; do
-    draw_progress_bar
-    ((progress += 1))
-    sleep 0.1  # simulasi pekerjaan yang sedang berlangsung
-done
-
-echo ""  # Membuat baris baru setelah progress bar selesai
-echo "Proses selesai!"
+draw_progress_bar
 '
 
 read -p " Press any key to continue"
