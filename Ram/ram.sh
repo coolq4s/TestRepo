@@ -29,16 +29,12 @@ progress=$percentage
 total=100
 memfree=$(free -w | awk "NR==2 {print \$4}")
 memused=$(free -w | awk "NR==2 {print \$3}")
+membuff=$(free -w | awk "NR==2 {print \$6}")
+memshare=$(free -w | awk "NR==2 {print \$5}")
 memtotal=$(free -m | awk "NR==2 {print \$2}")
-A=196788
-B=287645
 
-megabitA=$(echo "scale=2; $A * 8 / 1000000" | bc)
-megabitB=$(echo "scale=2; $B * 8 / 1000000" | bc)
-
-echo "Variabel A dalam Megabit: $megabitA Mb"
-echo "Variabel B dalam Megabit: $megabitB Mb"
-
+memCount $(($memused+$membuff+$memshare))
+memTotalCount=$(echo "scale=2; $memCount * 8 / 1000000" | bc)
 
 # Fungsi untuk menggambar progress bar
 draw_progress_bar() {
@@ -49,7 +45,7 @@ draw_progress_bar() {
     printf "\033[91m%0.s|\e[0m" $(seq 1 $num_bar)
     printf "\033[92m%0.s-\e[0m" $(seq 1 $num_space)
     printf "] %d%%\r" $percent
-    printf ",\033[102m\033[30m F: $memfree \033[101m\033[30m U: $memused \e[0m T: $memtotal"
+    printf ",\033[102m\033[30m F: $memfree \033[101m\033[30m U: $memTotalCount \e[0m T: $memtotal"
 }
 draw_progress_bar
 echo "\n"
