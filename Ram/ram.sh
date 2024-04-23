@@ -24,7 +24,7 @@ totalused=$(($used+$shared+$buff))
 echo -e " $totalused"
 bbs=$(free -h | awk 'NR==2 {print $4}' | sed "s/Mi//g; s/Gi//g; s/Ki//g")
 echo -e " $bbs"
-#free -h | awk 'NR==2 {print $5}' | sed "s/Mi//g; s/Gi//g; s/Ki//g"
+free -h
 
 echo -e " $total"
 
