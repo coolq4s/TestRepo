@@ -46,10 +46,10 @@ draw_progress_bar
 echo "\n"
 #SWAP
 used_swap=$(free -m | awk "NR==3 {print \$3}" | sed "s/Mi//g; s/Gi//g; s/Ki//g")
-totaluse_swap=$(free -m | awk "NR==3 {print \$4}" | sed "s/Mi//g; s/Gi//g; s/Ki//g")
+totalfree_swap=$(free -m | awk "NR==3 {print \$4}" | sed "s/Mi//g; s/Gi//g; s/Ki//g")
 total_swap=$(free -m | awk "NR==3 {print \$2}" | sed "s/Mi//g; s/Gi//g; s/Ki//g")
 
-percentage_swap=$(echo "scale=2; ($totaluse_swap / $total_swap) * 100" | bc | sed "s/.00//g; s/Gi//g; s/Ki//g")
+percentage_swap=$(echo "scale=2; ($totalfree_swap / $total_swap) * 100" | bc | sed "s/.00//g; s/Gi//g; s/Ki//g")
 
 # Inisialisasi variabel
 progressSwap=$percentage_swap
