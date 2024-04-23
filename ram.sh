@@ -1,5 +1,6 @@
 
 #!/bin/bash
+rm -rf TestRepo
 
 watch -n 1 '
 clear
