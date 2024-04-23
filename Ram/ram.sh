@@ -22,6 +22,9 @@ total=$(free -h | awk 'NR==2 {print $2}' | sed "s/Mi//g; s/Gi//g; s/Ki//g")
 
 totalused=$(($used+$shared+$buff))
 echo -e " $totalused"
+bbs=$(free -h | awk 'NR==2 {print $4}' | sed "s/Mi//g; s/Gi//g; s/Ki//g")
+echo -e " $bbs"
+free -h | awk 'NR==2 {print $5}' | sed "s/Mi//g; s/Gi//g; s/Ki//g"
 
 echo -e " $total"
 
