@@ -23,8 +23,6 @@ totaluse=$(($used+$shared+$buff))
 totalmem=$(free -h | awk "NR==2 {print \$2}" | sed "s/Mi//g; s/Gi//g; s/Ki//g")
 percentage=$(echo "scale=2; ($totaluse / $totalmem) * 100" | bc | sed "s/.00//g; s/Gi//g; s/Ki//g")
 bar_length=$(echo "scale=0; $percentage / 2" | bc)
-echo " Total Usage: $totaluse"
-echo " Total Memory: $totalmem"
 
 # Inisialisasi variabel
 progress=$percentage
