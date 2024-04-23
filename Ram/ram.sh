@@ -15,19 +15,9 @@ trap cleanup EXIT
 
 clear
 
-watch -n0.5 '
-total=$(free -h | awk "NR==2 {print \$2}" | sed "s/Mi//g; s/Gi//g; s/Ki//g")
-used=$(free -m | awk "NR==2 {print \$3}")
-percentage=$((used * 100 / total))
-
-echo "Total RAM: $total"
-echo "Memory Used: $used MiB"
-echo "Memory Usage: $percentage%"
-
-# Display memory bar
-echo "Memory Bar:"
-for ((i = 0; i < percentage; i++)); do
-    echo -n "*"
-done
-echo ""
+watch -n1 -tc'
+total=$(free -h | awk "'NR==2 {print $2}'" | sed "s/Mi//g; s/Gi//g; s/Ki//g")
+echo -e " $total"
 '
+
+read -p " Press any key to continue"
