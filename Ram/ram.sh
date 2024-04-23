@@ -19,4 +19,3 @@ bar_empty=$(printf "%0.s " $(seq $((50 - bar_length)) 50))
 
 echo -e "[$bar_fill$bar_empty] $mem_percent%"
 '
-
