@@ -15,7 +15,7 @@ trap cleanup EXIT
 
 clear
 
-watch -n1 '
+watch -n1 -tc'
 used=$(free -h | awk "NR==2 {print \$3}" | sed "s/Mi//g; s/Gi//g; s/Ki//g")
 echo " $used"
 '
