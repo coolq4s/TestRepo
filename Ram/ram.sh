@@ -19,6 +19,5 @@ clear
 
 
 free -h | awk 'NR==2 {print $2}'
+
 read -p "press enter to continue"
-
-
