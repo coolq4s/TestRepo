@@ -1,7 +1,7 @@
 #!/bin/bash
 rm -rf TestRepo
 
-watch -n 1 > /dev/null
+watch -n 1 
 '
 clear
 echo "=== RAM Usage ==="
