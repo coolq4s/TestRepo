@@ -27,7 +27,7 @@ cache=$(free -w | awk "NR==2 {print \$7}")
 echo "cache value is $cache"
 
 
-totalMemUsed=$(echo "$used + $shared + $buff")
+totalMemUsed=$(echo "$used + $shared + $buff + $cache")
 
 
 totaluse=$(($totalMemUsed * 8 / 1000000))
