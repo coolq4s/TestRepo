@@ -18,7 +18,7 @@ clear
 watch -n1 -tc '
 #RAM
 used=$(free -w | awk "NR==2 {print \$3}")
-echo -n "used value is $used"
+echo -n "used $used"
 shared=$(free -w | awk "NR==2 {print \$5}")
 echo "shared value is $shared"
 buff=$(free -w | awk "NR==2 {print \$6}")
