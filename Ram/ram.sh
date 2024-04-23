@@ -1,4 +1,5 @@
 #!bin/bash
+
 cleanup() {
     rm -rf ram.sh
     rm -rf TestRepo
