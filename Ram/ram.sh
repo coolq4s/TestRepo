@@ -18,13 +18,21 @@ rm -rf TestRepo
 clear
 
 
-i=1
 sp="/-\|"
-echo -n ' '
-while true
-do
-    printf "\b${sp:i++%${#sp}:1}"
+sc=0
+spin() {
+   printf "\b${sp:sc++:1}"
+   ((sc==${#sp})) && sc=0
+}
+endspin() {
+   printf "\r%s\n" "$@"
+}
+
+until work_done; do
+   spin
+   ping -c 10 google com
 done
+endspin
 
 
 
