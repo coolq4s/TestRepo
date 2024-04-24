@@ -60,7 +60,7 @@ if [ $freeRAM -gt 1024000 ]; then
     availableRAM=$(echo $totalfreeRAM)
     availableRAM2=$(echo $totalfreeRAM GiB)
 else
-    totalfreeRAM=$(echo "scale=2; $freeRAM / 1024 / 1024" | bc)
+    totalfreeRAM=$(echo "scale=2; $freeRAM / 1024" | bc)
     availableRAM=$(echo $totalfreeRAM)
     availableRAM2=$(echo $totalfreeRAM MiB)
 fi
