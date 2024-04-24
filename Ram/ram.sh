@@ -51,14 +51,23 @@ else
     installedMem=$(echo $totalmemInstalled)
     installedMem2=$(echo $totalmemInstalled MiB)
 fi
-
 echo "Total Ram Count $installedMem"
+
+#Count Free RAM
+freeRAM=$(free -w | awk "NR==2 {print \$4}")
+if [ $freeRAM -gt 1024000 ]; then
+    totalfreeRAM=$(echo "scale=2; $freeRAM / 1024 / 1024" | bc)
+    availableRAM=$(echo $totalfreeRAM)
+    availableRAM2=$(echo $totalfreeRAM GiB)
+else
+    totalfreeRAM=$(echo "scale=2; $freeRAM / 1024 / 1024" | bc)
+    availableRAM=$(echo $totalfreeRAM)
+    availableRAM2=$(echo $totalfreeRAM MiB)
+fi
 
 #Bar RAM
 getPercent=$(echo "scale=2; ($totalresult / $installedMem) * 100" | bc )
 percentage=$(printf "%.0f" "$getPercent")
-echo "$percentage"
-
 
 progress=$percentage
 total=100
