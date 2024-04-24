@@ -35,7 +35,7 @@ if [ $totalMemUsed -gt 1024000000 ]; then
     echo "Total memory used: $totaluse GiB"
 else
     totaluse=$(echo "scale=2; $totalMemUsed / 1024" | bc)
-    echo "Total memory used: $totalMemUsed MiB"
+    echo "Total memory used: $totaluse MiB"
 fi
 
 #totalmem=$(free -h | awk "NR==2 {print \$2}")
