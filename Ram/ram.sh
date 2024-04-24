@@ -36,9 +36,6 @@ else
     totalresult2=$(echo $totaluse MiB)
 fi
 
-echo "Total Memory Used $totalresult" | sed "s/MiB//g; s/GiB//g"
-
-
 #Count Installed RAM
 totalmem=$(free -w | awk "NR==2 {print \$2}")
 
@@ -51,7 +48,6 @@ else
     installedMem=$(echo $totalmemInstalled)
     installedMem2=$(echo $totalmemInstalled MiB)
 fi
-echo "Total Ram Count $installedMem"
 
 #Count Free RAM
 freeRAM=$(free -w | awk "NR==2 {print \$4}")
@@ -64,7 +60,6 @@ else
     availableRAM=$(echo $totalfreeRAM)
     availableRAM2=$(echo $totalfreeRAM MiB)
 fi
-echo "Free RAM $availableRAM and $availableRAM2"
 
 #Bar RAM
 getPercent=$(echo "scale=2; ($totalresult / $installedMem) * 100" | bc )
@@ -101,7 +96,6 @@ else
     swapresult=$(echo $swap_used)
     swapresult2=$(echo $swap_used MiB)
 fi
-echo " Swap $swapresult $swapresult2"
 
 if [ $free_swap -gt 1024000 ]; then
     free_swap_count=$(echo "scale=2; $free_swap / 1024 / 1024" | bc)
@@ -112,7 +106,6 @@ else
     availableSWAP=$(echo $free_swap_count)
     availableSWAP2=$(echo $free_swap_count MiB)
 fi
-echo " Swap Free $availableSWAP $availableSWAP2"
 
 
 if [ $total_swap -gt 1024000 ]; then
@@ -124,7 +117,6 @@ else
     totalSWAP=$(echo $total_swap_count)
     totalSWAP2=$(echo $total_swap_count MiB)
 fi
-echo " Total Swap $totalSWAP $totalSWAP2"
 
 
 #Bar SWAP
