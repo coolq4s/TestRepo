@@ -35,6 +35,7 @@ else
     totalresult=$(echo $totaluse)
     totalresult2=$(echo $totaluse MiB)
 fi
+
 echo "Total Memory Used $totalresult" | sed "s/MiB//g; s/GiB//g"
 
 
