@@ -17,6 +17,7 @@ clear
 
 watch -n1 -tc '
 #RAM
+#Count Used Ram
 used=$(free -w | awk "NR==2 {print \$3}")
 shared=$(free -w | awk "NR==2 {print \$5}")
 buff=$(free -w | awk "NR==2 {print \$6}")
@@ -38,6 +39,7 @@ fi
 echo "Total Memory Used $totalresult" | sed "s/MiB//g; s/GiB//g"
 
 
+#Count Installed RAM
 totalmem=$(free -w | awk "NR==2 {print \$2}")
 echo "Total Installed RAM $totalmem"
 if [ $totalmem -gt 1024000 ]; then
@@ -52,6 +54,8 @@ else
 fi
 
 echo "Total Ram Count $installedMem"
+
+
 
 '
 
