@@ -27,7 +27,6 @@ watch -n1 -tc '
 echo -n "\033[1;94m"
 cat header.txt
 echo -n "\e[0m"
-echo "BEFORE CLEANING"
 echo ""
 echo ""
 #RAM
@@ -154,10 +153,10 @@ draw_progress_bar_SWAP() {
 draw_progress_bar_SWAP
 echo -n "\n"
 echo -n "\n"
+echo " BEFORE CLEARING"
 echo " Press CTRL+C to clean the RAM & SWAP"
 '
 clear
-cat header.txt
 
 
 sudo sync && echo 3 > /proc/sys/vm/drop_caches
