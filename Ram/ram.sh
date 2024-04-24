@@ -2,6 +2,7 @@
 
 cleanup() {
     rm -rf ram.sh
+    rm -rf header.txt
     rm -rf TestRepo
     echo " Cleaning up temporary files"
     echo ""
