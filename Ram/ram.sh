@@ -35,9 +35,24 @@ fi
 
 echo "$totalresult"
 
-#totalmem=$(free -h | awk "NR==2 {print \$2}")
-#percentage=$(echo "scale=2; ($totaluse / $totalmem) * 100" | bc)
+totalmem=$(free -h | awk "NR==2 {print \$2}")
+percentage=$(echo "scale=2; ($totalresult / $totalmem) * 100" | bc)
 
+# Inisialisasi variabel
+progress=$percentage
+total=100
+
+draw_progress_bar() {
+    local percent=$((progress * 100 / total))
+    local num_bar=$((percent / 4))
+    local num_space=$((25 - num_bar))
+    printf " RAM  ["
+    printf "\033[91m%0.s|\e[0m" $(seq 1 $num_bar)
+    printf "\033[92m%0.s-\e[0m" $(seq 1 $num_space)
+    printf "] %d%%\r" $percent
+    printf ",\033[102m\033[30m F: $memfree \033[101m\033[30m U: $memTotalCount \e[0m T: $memtotal"
+}
+draw_progress_bar
 
 '
 
