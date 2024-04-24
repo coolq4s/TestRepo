@@ -141,7 +141,8 @@ draw_progress_bar_SWAP
 echo -n "\n"
 echo -n "\n"
 
-&&
+&
+
 read -p " Press"
 '
 clear
