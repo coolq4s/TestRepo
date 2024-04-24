@@ -141,10 +141,29 @@ draw_progress_bar_SWAP
 echo -n "\n"
 echo -n "\n"
 
-&
-
-read -p " Press"
 '
+
+
+# Menampilkan dialog pesan
+whiptail --title "Pesan" --msgbox "Halo, ini adalah pesan dialog!" 8 40
+
+# Menampilkan dialog pilihan
+result=$(whiptail --title "Pilihan" --menu "Pilih satu opsi:" 15 60 4 \
+    "1" "Opsi 1" \
+    "2" "Opsi 2" \
+    "3" "Opsi 3" \
+    "4" "Keluar" \
+    3>&1 1>&2 2>&3)
+
+# Memeriksa hasil dari dialog pilihan
+case $result in
+    "1") echo "Anda memilih opsi 1";;
+    "2") echo "Anda memilih opsi 2";;
+    "3") echo "Anda memilih opsi 3";;
+    "4") echo "Keluar dari skrip"; exit;;
+esac
+
+
 clear
 #sudo sync && echo 3 > /proc/sys/vm/drop_caches
 read -p " Press any key to continue"
