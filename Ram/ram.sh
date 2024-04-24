@@ -87,7 +87,13 @@ draw_progress_bar_RAM() {
 draw_progress_bar_RAM
 
 #SWAP
-#Used SWAP
+used_swap=$(free -w | awk "NR==3 {print \$3}")
+free_swap=$(free -w | awk "NR==2 {print \$4}")
+total_swap=$(free -w | awk "NR==2 {print \$2}")
+
+
+
+
 
 '
 #sudo sync && echo 3 > /proc/sys/vm/drop_caches
