@@ -26,7 +26,9 @@ cat header.txt
 echo -n "\e[0m"
 echo ""
 echo ""
-echo "                          -BEFORE CLEARING-"
+echo "                                 -BEFORE CLEARING-"
+echo ""
+echo ""
 #RAM
 #Count Used Ram
 used=$(free -w | awk "NR==2 {print \$3}")
@@ -163,8 +165,9 @@ cat header.txt
 echo -n "\e[0m"
 echo ""
 echo ""
-echo "                           -AFTER CLEARING-"
-
+echo "                              -AFTER CLEARING-"
+echo ""
+echo ""
 #RAM
 #Count Used Ram
 used=$(free -w | awk "NR==2 {print \$3}")
