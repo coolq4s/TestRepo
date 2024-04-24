@@ -151,6 +151,7 @@ draw_progress_bar_SWAP() {
 }
 
 draw_progress_bar_SWAP
+wait
 echo -n "\n"
 echo -n "\n"
 echo " Press CTRL+C to clean the RAM & SWAP"
