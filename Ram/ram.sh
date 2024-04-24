@@ -27,13 +27,15 @@ totalMemUsed=$(($used + $shared + $buff + $cache))
 
 if [ $totalMemUsed -gt 1024000 ]; then
     totaluse=$(echo "scale=2; $totalMemUsed / 1024 / 1024" | bc) # Convert to GiB
-    echo "Total memory used: $totaluse GiB"
-    
+    echo "$totaluse GiB"
+    totalusemem = "$totaluse GiB"
 else
     totaluse=$(echo "scale=2; $totalMemUsed / 1024" | bc)
-    echo "Total memory used: $totaluse MiB"
+    echo "$totaluse MiB"
+    totalusemem = "$totaluse MiB"
 fi
-echo "$totaluse"
+
+echo "$totalusemem"
 
 #totalmem=$(free -h | awk "NR==2 {print \$2}")
 #percentage=$(echo "scale=2; ($totaluse / $totalmem) * 100" | bc)
