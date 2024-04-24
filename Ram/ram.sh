@@ -28,10 +28,12 @@ totalMemUsed=$(($used + $shared + $buff + $cache))
 if [ $totalMemUsed -gt 1024000 ]; then
     totaluse=$(echo "scale=2; $totalMemUsed / 1024 / 1024" | bc)
     totalresult=$(echo $totaluse)
-    
+    totalresult2=$(echo $totaluse GiB)
+
 else
     totaluse=$(echo "scale=2; $totalMemUsed / 1024" | bc)
     totalresult=$(echo $totaluse)
+    totalresult2=$(echo $totaluse MiB)
 fi
 
 echo "$totalresult" | sed "s/Mi//g; s/Gi//g; s/Ki//g
