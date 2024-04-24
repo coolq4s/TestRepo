@@ -163,6 +163,8 @@ cat header.txt
 echo -n "\e[0m"
 echo ""
 echo ""
+echo "                           -AFTER CLEARING-"
+
 #RAM
 #Count Used Ram
 used=$(free -w | awk "NR==2 {print \$3}")
@@ -287,7 +289,6 @@ draw_progress_bar_SWAP() {
 draw_progress_bar_SWAP
 echo -n "\n"
 echo -n "\n"
-echo " AFTER CLEARED"
 echo " Press CTRL+C to exit this tool"
 '
 clear
