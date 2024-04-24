@@ -162,7 +162,7 @@ cat header.txt
 echo -n "\e[0m"
 echo ""
 echo ""
-wait; echo "                                  -AFTER CLEARING-"
+wait; echo "                          -PLEASE WAIT, CLEARING-"
 
 sudo sync && echo 3 > /proc/sys/vm/drop_caches
 
