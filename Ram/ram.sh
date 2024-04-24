@@ -40,7 +40,6 @@ echo "Total Memory Used $totalresult" | sed "s/MiB//g; s/GiB//g"
 
 
 #Count Installed RAM
-
 totalmem=$(free -w | awk "NR==2 {print \$2}")
 
 if [ $totalmem -gt 1024000 ]; then
