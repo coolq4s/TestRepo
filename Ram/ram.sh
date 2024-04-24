@@ -26,6 +26,8 @@ cat << "EOF" > header.txt
 EOF
 watch -n1 -tc '
 cat header.txt
+echo ""
+echo "x
 #RAM
 #Count Used Ram
 used=$(free -w | awk "NR==2 {print \$3}")
