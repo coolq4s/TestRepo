@@ -115,7 +115,6 @@ fi
 echo " Swap Free $availableSWAP $availableSWAP2"
 
 
-echo " $total_swap"
 if [ $total_swap -gt 1024000 ]; then
     total_swap_count=$(echo "scale=2; $total_swap / 1024 / 1024" | bc)
     totalSWAP=$(echo $total_swap_count)
