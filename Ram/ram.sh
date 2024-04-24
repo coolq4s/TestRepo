@@ -15,13 +15,7 @@ trap cleanup EXIT
 
 clear
 
-
-
-
 watch -n1 -tc -g '
-echo -n "------------BEFORE------------"
-echo ""
-echo ""
 #RAM
 #Count Used Ram
 used=$(free -w | awk "NR==2 {print \$3}")
@@ -278,7 +272,7 @@ draw_progress_bar_SWAP() {
 draw_progress_bar_SWAP
 echo -n "\n"
 echo -n "\n"
-echo -n "This info will close in 3 seconds"
+echo "             This info will close in 3 seconds"
 sleep 3s'
 
 echo -n "------------REALTIME------------"
