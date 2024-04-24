@@ -24,7 +24,7 @@ cat << "EOF" > header.txt
  \____/\____/\____/_/\___\_\__,_/____/
                              RAM CLEANER
 EOF
-watch -n1 -tc -g '
+watch -n1 -tc '
 cat header.txt
 #RAM
 #Count Used Ram
