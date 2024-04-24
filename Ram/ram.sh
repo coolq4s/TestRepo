@@ -127,6 +127,27 @@ fi
 echo " Total Swap $totalSWAP $totalSWAP2"
 
 
+#Bar SWAP
+getPercent=$(echo "scale=2; ($totalresult / $installedMem) * 100" | bc )
+percentage=$(printf "%.0f" "$getPercent")
+
+progress=$percentage
+total=100
+
+draw_progress_bar_RAM() {
+    local percent=$((progress * 100 / total))
+    local num_bar=$((percent / 4))
+    local num_space=$((25 - num_bar))
+    printf " RAM  ["
+    printf "\033[91m%0.s|\e[0m" $(seq 1 $num_bar)
+    printf "\033[92m%0.s-\e[0m" $(seq 1 $num_space)
+    printf "] %d%%\r" $percent
+    printf ",\033[102m\033[30m F: $availableRAM2 \033[101m\033[30m U: $totalresult2 \e[0m T: $installedMem2"
+}
+
+draw_progress_bar_RAM
+echo -n "\n"
+
 
 '
 #sudo sync && echo 3 > /proc/sys/vm/drop_caches
