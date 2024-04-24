@@ -156,6 +156,7 @@ echo -n "\n"
 echo -n "\n"
 echo " Press CTRL+C to clean the RAM & SWAP"
 '
+clear
 echo -n "\033[1;94m"
 cat header.txt
 echo -n "\e[0m"
