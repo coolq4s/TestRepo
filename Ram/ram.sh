@@ -19,7 +19,10 @@ clear
 tmux new-session -d -s Monitoring
 
 # Menjalankan perintah watch dalam sesi tmux
-tmux send-keys -t Monitoring 'watch -n1 -tc "free -w"' C-m
+tmux send-keys -t Monitoring 'watch -n1 -tc "
+free -h
+
+"' C-m
 
 # Menjalankan skrip shell lainnya jika ada di bawah ini
 
