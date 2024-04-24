@@ -18,11 +18,11 @@ clear
 # Memulai sesi tmux dengan nama "Monitoring"
 tmux new-session -d -s Monitoring
 
-# Menjalankan perintah watch dalam sesi tmux
-tmux send-keys -t Monitoring 'watch -n1 -tc "
-free -h
+# Memecah layar menjadi dua panel secara vertikal
+tmux split-window -v
 
-"' C-m
+# Menjalankan perintah watch dalam panel baru di bawah panel utama
+tmux send-keys -t Monitoring:1 'watch -n1 -tc "free -w"' C-m
 
 # Menjalankan skrip shell lainnya jika ada di bawah ini
 
