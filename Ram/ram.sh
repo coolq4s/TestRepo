@@ -143,6 +143,6 @@ echo -n "\n"
 
 
 clear
-#sudo sync && echo 3 > /proc/sys/vm/drop_caches
+sudo sync && echo 3 > /proc/sys/vm/drop_caches
 read -p " Press any key to continue"
 exit
