@@ -15,7 +15,7 @@ trap cleanup EXIT
 
 clear
 
-watch -n1 -tc '
+watch -n1 -tc -g '
 #RAM
 #Count Used Ram
 used=$(free -w | awk "NR==2 {print \$3}")
