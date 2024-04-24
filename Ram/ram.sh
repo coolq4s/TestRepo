@@ -13,11 +13,7 @@ cleanup() {
 
 trap cleanup EXIT
 
-clear
-
-# Memulai sesi tmux dengan nama "Monitoring"
-tmux new-session -d -s RAM_Usage
-tmux send-keys -t RAM_Usage '
+watch_call(){
 watch -n1 -tc '
 #RAM
 #Count Used Ram
@@ -143,9 +139,23 @@ draw_progress_bar_SWAP() {
 draw_progress_bar_SWAP
 echo -n "\n"
 echo -n "\n"
-'
-tmux neww -t RAM_Usage:1 -n 'ggg'
-tmux send-keys -t RAM_Usage 'read -p "test"'
+}
+
+clear
+
+# Memulai sesi tmux dengan nama "Monitoring"
+tmux new-session -d -s RAM_Usage
+tmux send-keys -t RAM_Usage '
 
 # Memecah layar menjadi dua panel secara vertikal
-tmux split-window -v
+tmux 'watch_call'
+
+# Menjalankan perintah watch dalam panel baru di bawah panel utama
+
+# Menjalankan skrip shell lainnya jika ada di bawah ini
+
+# Menampilkan pesan dan menunggu input dari pengguna
+read -p " Press any key to continue"
+
+# Keluar dari sesi tmux
+tmux kill-session -t Monitoring
