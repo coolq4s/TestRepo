@@ -125,7 +125,7 @@ else
     totalSWAP=$(echo $total_swap_count)
     totalSWAP2=$(echo $total_swap_count MiB)
 fi
-echo " Swap Free $availableSWAP $availableSWAP2"
+echo " Swap Free totalSWAP $totalSWAP2"
 
 
 
