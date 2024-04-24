@@ -17,7 +17,7 @@ clear
 
 # Memulai sesi tmux dengan nama "Monitoring"
 tmux new-session -d -s Monitoring
-tmux send-keys 'htop'
+tmux 'htop'
 
 # Memecah layar menjadi dua panel secara vertikal
 tmux split-window -v
