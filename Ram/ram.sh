@@ -91,7 +91,9 @@ used_swap=$(free -w | awk "NR==3 {print \$3}")
 free_swap=$(free -w | awk "NR==2 {print \$4}")
 total_swap=$(free -w | awk "NR==2 {print \$2}")
 
-
+echo " $used_swap"
+echo " $free_swap"
+echo " $total_swap"
 
 
 
