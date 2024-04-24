@@ -140,8 +140,20 @@ draw_progress_bar_SWAP() {
 draw_progress_bar_SWAP
 echo -n "\n"
 echo -n "\n"
-read -p " Press any key to clear the RAM"
 '
-sudo sync && echo 3 > /proc/sys/vm/drop_caches
+
+# Meminta pengguna untuk memasukkan interval waktu
+read -p "Masukkan interval waktu (detik): " interval
+
+# Memastikan interval yang dimasukkan adalah bilangan positif
+if [[ $interval =~ ^[0-9]+$ && $interval -gt 0 ]]; then
+    # Memanggil watch untuk memantau penggunaan CPU dengan interval yang dimasukkan
+    watch -n "$interval" "top -bn1 | grep '^%Cpu' ; free -h"
+else
+    echo "Interval waktu tidak valid."
+fi
+
+
+#sudo sync && echo 3 > /proc/sys/vm/drop_caches
 #read -p " Press any key to continue"
 exit
