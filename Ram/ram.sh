@@ -70,6 +70,7 @@ draw_progress_bar() {
     printf "] %d%%\r" $percent
     printf ",\033[102m\033[30m F: $memfree \033[101m\033[30m U: $memTotalCount \e[0m T: $memtotal"
 }
+
 draw_progress_bar
 
 
