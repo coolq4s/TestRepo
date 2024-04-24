@@ -13,12 +13,12 @@ trap cleanup EXIT
 clear
 
 cat << "EOF" > header.txt
-                    ______            ______
-                   / ____/___  ____  / / __ \____ ______
-                  / /   / __ \/ __ \/ / / / / __ `/ ___/
-                 / /___/ /_/ / /_/ / / /_/ / /_/ (__  )
-                 \____/\____/\____/_/\___\_\__,_/____/
-                                             RAM CLEANER
+                         ______            ______
+                        / ____/___  ____  / / __ \____ ______
+                       / /   / __ \/ __ \/ / / / / __ `/ ___/
+                      / /___/ /_/ / /_/ / / /_/ / /_/ (__  )
+                      \____/\____/\____/_/\___\_\__,_/____/
+                                                  RAM CLEANER
 EOF
 watch -n1 -tc '
 echo -n "\033[1;94m"
@@ -26,6 +26,7 @@ cat header.txt
 echo -n "\e[0m"
 echo ""
 echo ""
+echo "                              BEFORE CLEARING"
 #RAM
 #Count Used Ram
 used=$(free -w | awk "NR==2 {print \$3}")
@@ -150,7 +151,6 @@ draw_progress_bar_SWAP() {
 draw_progress_bar_SWAP
 echo -n "\n"
 echo -n "\n"
-echo " BEFORE CLEARING"
 echo " Press CTRL+C to clean the RAM & SWAP"
 '
 sudo sync && echo 3 > /proc/sys/vm/drop_caches
