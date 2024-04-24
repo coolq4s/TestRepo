@@ -290,4 +290,5 @@ echo -n "\n"
 echo " AFTER CLEARED"
 echo " Press CTRL+C to exit this tool"
 '
+clear
 exit
