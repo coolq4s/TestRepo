@@ -165,7 +165,7 @@ cat header.txt
 echo -n "\e[0m"
 echo ""
 echo ""
-echo "                              -AFTER CLEARING-"
+echo "                                  -AFTER CLEARING-"
 echo ""
 echo ""
 #RAM
