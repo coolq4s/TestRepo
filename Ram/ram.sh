@@ -156,7 +156,13 @@ echo -n "\n"
 echo -n "\n"
 echo " Press CTRL+C to clean the RAM & SWAP"
 '
-wait; echo " Please Wait !!!!"
+echo -n "\033[1;94m"
+cat header.txt
+echo -n "\e[0m"
+echo ""
+echo ""
+wait; echo "                                  -AFTER CLEARING-"
+
 sudo sync && echo 3 > /proc/sys/vm/drop_caches
 
 clear
