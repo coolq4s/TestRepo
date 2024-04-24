@@ -24,9 +24,9 @@ cat << "EOF" > header.txt
                              RAM CLEANER
 EOF
 watch -n1 -tc '
-echo -e "\033[1;94m"
+echo -n "\033[1;94m"
 cat header.txt
-echo -e "\e[0m"
+echo -n "\e[0m"
 echo "BEFORE CLEANING"
 echo ""
 echo ""
