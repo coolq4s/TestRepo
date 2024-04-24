@@ -64,7 +64,7 @@ else
     availableRAM=$(echo $totalfreeRAM)
     availableRAM2=$(echo $totalfreeRAM MiB)
 fi
-echo "Free RAM $availableRAM and $availableRAM2
+echo "Free RAM $availableRAM and $availableRAM2"
 
 #Bar RAM
 getPercent=$(echo "scale=2; ($totalresult / $installedMem) * 100" | bc )
