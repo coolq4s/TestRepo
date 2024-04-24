@@ -35,9 +35,11 @@ else
     totalresult=$(echo $totaluse)
     totalresult2=$(echo $totaluse MiB)
 fi
+echo "Total Memory Used $totalresult" | sed "s/MiB//g; s/GiB//g"
 
-echo "$totalresult" | sed "s/MiB//g; s/GiB//g"
+
 totalmem=$(free -w | awk "NR==2 {print \$2}")
+echo "$totalmem"
 
 '
 
