@@ -24,8 +24,8 @@ cat << "EOF" > header.txt
  \____/\____/\____/_/\___\_\__,_/____/
                              RAM CLEANER
 EOF
-cat header.txt
 watch -n1 -tc -g '
+cat header.txt
 #RAM
 #Count Used Ram
 used=$(free -w | awk "NR==2 {print \$3}")
@@ -150,9 +150,13 @@ draw_progress_bar_SWAP() {
 draw_progress_bar_SWAP
 echo -n "\n"
 echo -n "\n"
+echo " Press CTRL+C to clean the RAM & SWAP"
 '
-sudo sync && echo 3 > /proc/sys/vm/drop_caches
+clear
+cat header.txt
 
+
+sudo sync && echo 3 > /proc/sys/vm/drop_caches
 clear
 read -p " Press any key to continue"
 exit
