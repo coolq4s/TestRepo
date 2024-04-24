@@ -141,11 +141,7 @@ echo -n "\n"
 echo -n "\n"
 }
 
-clear
-
-# Memulai sesi tmux dengan nama "Monitoring"
-tmux new-session -d -s RAM_Usage
-tmux send-keys -t RAM_Usage '
+'
 
 # Memecah layar menjadi dua panel secara vertikal
 tmux 'watch_call'
