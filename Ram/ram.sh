@@ -37,9 +37,20 @@ else
 fi
 
 echo "$totalresult" | sed "s/MiB//g; s/GiB//g"
+totalmem=$(free -w | awk "NR==2 {print \$2}")
+if [ $totalmem -gt 1024000 ]; then
+    totalmemInstalled=$(echo "scale=2; $totalmem / 1024 / 1024" | bc)
+    totalmemresult=$(echo $totalmemInstalled)
+    totalmemresult2=$(echo $totalmemInstalled GiB)
 
-totalmem=$(free -h | awk "NR==2 {print \$2}")
-percentage=$(echo "scale=2; ($totalresult / $totalmem) * 100" | bc)
+else
+    totalmemInstalled=$(echo "scale=2; $totalmem / 1024" | bc)
+    totalmemresult=$(echo $totalmemInstalled)
+    totalmemresult2=$(echo $totalmemInstalled MiB)
+fi
+
+
+percentage=$(echo "scale=2; ($totalresult / $totalmemresult) * 100" | bc)
 
 # Inisialisasi variabel
 progress=$percentage
