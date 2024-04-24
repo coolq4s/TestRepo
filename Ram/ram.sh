@@ -36,7 +36,7 @@ else
     totalresult2=$(echo $totaluse MiB)
 fi
 
-echo "$totalresult" | sed "s/Mi//g; s/Gi//g; s/Ki//g
+echo "$totalresult" | sed "s/MiB//g; s/Gi//g"
 
 totalmem=$(free -h | awk "NR==2 {print \$2}")
 percentage=$(echo "scale=2; ($totalresult / $totalmem) * 100" | bc)
