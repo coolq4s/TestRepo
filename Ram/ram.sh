@@ -294,7 +294,7 @@ draw_progress_bar_SWAP
 echo -n "\n"
 echo -n "\n"
 echo " Press CTRL+C to exit this tool"
-wait
+wait; echo " Waiting this Process
 '
 clear
 exit
