@@ -163,8 +163,7 @@ case $result in
     "4") echo "Keluar dari skrip"; exit;;
 esac
 
-
-
+clear
 #sudo sync && echo 3 > /proc/sys/vm/drop_caches
 read -p " Press any key to continue"
 exit
