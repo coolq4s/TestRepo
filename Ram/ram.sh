@@ -143,8 +143,9 @@ echo -n "\n"
 
 '
 
-# Memecah layar menjadi dua panel secara vertikal
-tmux "watch_call"
+# Memecah layar menjada panel secara vertikal
+tmux new-session -d -s ram
+tmux send-keys -t ram:1 'watch_call'
 
 # Menjalankan perintah watch dalam panel baru di bawah panel utama
 
