@@ -132,10 +132,10 @@ getswapPercent=$(echo "scale=2; ($swapresult / $totalSWAP) * 100" | bc )
 percentageswap=$(printf "%.0f" "$getswapPercent")
 
 progressSWAP=$percentageswap
-total=100
+totalpercentSWAP=100
 
 draw_progress_bar_SWAP() {
-    local percentSWAP=$((progress * 100 / total))
+    local percentSWAP=$((progressSWAP * 100 / totalpercentSWAP))
     local num_barSWAP=$((percentSWAP / 4))
     local num_spaceSWAP=$((25 - num_barSWAP))
     printf " SWAP ["
