@@ -13,7 +13,8 @@ cleanup() {
 
 trap cleanup EXIT
 
-watch_call(){
+clear
+
 watch -n1 -tc '
 #RAM
 #Count Used Ram
@@ -139,16 +140,9 @@ draw_progress_bar_SWAP() {
 draw_progress_bar_SWAP
 echo -n "\n"
 echo -n "\n"
-}
 
-'
 
-# Memecah layar menjada panel secara vertikal
-tmux new-session -d -s ram
-tmux send-keys -t ram:1 'watch_call'
-
-# Menjalankan perintah watch dalam panel baru di bawah panel utama
-
-# Menjalankan skrip shell lainnya jika ada di bawah ini
-
-# Menampilkan pesan dan menunggu input dari pengguna
+clear
+#sudo sync && echo 3 > /proc/sys/vm/drop_caches
+read -p " Press any key to continue"
+exit
