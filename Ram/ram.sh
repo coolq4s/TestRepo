@@ -39,4 +39,4 @@ percentage=$(echo "scale=2; ($totaluse / $totalmem) * 100" | bc)
 
 '
 
-read -p " Press any key to continue"
+#read -p " Press any key to continue"
