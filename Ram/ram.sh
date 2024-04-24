@@ -157,7 +157,7 @@ echo -n "\n"
 echo " Press CTRL+C to clean the RAM & SWAP"
 '
 sudo sync && echo 3 > /proc/sys/vm/drop_caches
-wait
+wait; echo " Waiting this process"
 clear
 
 watch -n1 -tc '
