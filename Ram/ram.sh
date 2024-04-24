@@ -139,7 +139,9 @@ draw_progress_bar_SWAP() {
 
 draw_progress_bar_SWAP
 echo -n "\n"
-
+echo -n "\n"
+read -p " Press any key to clear the RAM"
+sudo sync && echo 3 > /proc/sys/vm/drop_caches
 
 '
 #sudo sync && echo 3 > /proc/sys/vm/drop_caches
