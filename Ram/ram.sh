@@ -151,7 +151,3 @@ tmux "watch_call"
 # Menjalankan skrip shell lainnya jika ada di bawah ini
 
 # Menampilkan pesan dan menunggu input dari pengguna
-read -p " Press any key to continue"
-
-# Keluar dari sesi tmux
-tmux kill-session -t Monitoring
