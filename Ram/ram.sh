@@ -162,6 +162,7 @@ case $result in
     "3") echo "Anda memilih opsi 3";;
     "4") echo "Keluar dari skrip"; exit;;
 esac
+read -p "pause"
 
 clear
 #sudo sync && echo 3 > /proc/sys/vm/drop_caches
