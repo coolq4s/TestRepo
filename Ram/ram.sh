@@ -30,7 +30,7 @@ totalMemUsed=$(($used + $shared + $buff + $cache))
 echo "$totalMemUsed"
 
 
-if [ $totalMemUsed -ge 1024 ]; then
+if [ $totalMemUsed -gt 1024 ]; then
     totaluse=$(echo "scale=2; $totalMemUsed / 1024" | bc) # Convert to GiB
     echo "Total memory used: $totaluse GiB"
 else
