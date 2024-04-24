@@ -41,12 +41,12 @@ echo "Total Memory Used $totalresult" | sed "s/MiB//g; s/GiB//g"
 totalmem=$(free -w | awk "NR==2 {print \$2}")
 echo "Total Installed RAM $totalmem"
 if [ $totalmem -gt 1024000 ]; then
-    totalmemInstalled=$(echo "scale=2; $totalMemUsed / 1024 / 1024" | bc)
+    totalmemInstalled=$(echo "scale=2; $totalmem / 1024 / 1024" | bc)
     installedMem=$(echo $totalMemInstalled)
     installedMem2=$(echo $totalMemInstalled GiB)
 
 else
-    totalmemInstalled=$(echo "scale=2; $totalMemUsed / 1024" | bc)
+    totalmemInstalled=$(echo "scale=2; $totalmem / 1024" | bc)
     installedMem=$(echo $totalMemInstalled)
     installedMem2=$(echo $totalMemInstalled MiB)
 fi
