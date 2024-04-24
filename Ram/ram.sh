@@ -26,14 +26,13 @@ echo "buff value is $buff"
 cache=$(free -w | awk "NR==2 {print \$7}")
 echo "cache value is $cache"
 
-
 totalMemUsed=$($used + $shared + $buff + $cache)
 echo "$totalMemUsed"
 
 
-totaluse=$(($totalMemUsed * 8 / 10000))
-echo " $totaluse"
-totalmem=$(free -h | awk "NR==2 {print \$2}")
+#totaluse=$(($totalMemUsed * 8 / 10000))
+#echo " $totaluse"
+#totalmem=$(free -h | awk "NR==2 {print \$2}")
 #percentage=$(echo "scale=2; ($totaluse / $totalmem) * 100" | bc)
 
 
