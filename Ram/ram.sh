@@ -73,7 +73,7 @@ percentage=$(printf "%.0f" "$getPercent")
 progress=$percentage
 total=100
 
-draw_progress_bar() {
+draw_progress_bar_RAM() {
     local percent=$((progress * 100 / total))
     local num_bar=$((percent / 4))
     local num_space=$((25 - num_bar))
@@ -84,10 +84,9 @@ draw_progress_bar() {
     printf ",\033[102m\033[30m F: $availableRAM2 \033[101m\033[30m U: $totalresult2 \e[0m T: $installedMem2"
 }
 
-draw_progress_bar
+draw_progress_bar_RAM
 
-
-
+#
 
 '
 #sudo sync && echo 3 > /proc/sys/vm/drop_caches
