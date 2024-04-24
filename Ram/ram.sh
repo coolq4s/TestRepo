@@ -89,8 +89,8 @@ echo -n "\n"
 
 #SWAP
 used_swap=$(free -w | awk "NR==3 {print \$3}")
-free_swap=$(free -w | awk "NR==2 {print \$4}")
-total_swap=$(free -w | awk "NR==2 {print \$2}")
+free_swap=$(free -w | awk "NR==3 {print \$4}")
+total_swap=$(free -w | awk "NR==3 {print \$2}")
 
 if [ $used_swap -gt 1024000 ]; then
     swap_used=$(echo "scale=2; $used_swap / 1024 / 1024" | bc)
