@@ -103,8 +103,6 @@ else
 fi
 echo " Swap $swapresult $swapresult2"
 
-
-echo " $free_swap"
 if [ $free_swap -gt 1024000 ]; then
     free_swap_count=$(echo "scale=2; $free_swap / 1024 / 1024" | bc)
     availableSWAP=$(echo $free_swap_count)
@@ -116,7 +114,18 @@ else
 fi
 echo " Swap Free $availableSWAP $availableSWAP2"
 
+
 echo " $total_swap"
+if [ $total_swap -gt 1024000 ]; then
+    total_swap_count=$(echo "scale=2; $total_swap / 1024 / 1024" | bc)
+    totalSWAP=$(echo $total_swap_count)
+    totalSWAP2=$(echo $total_swap_count GiB)
+else
+    total_swap_count=$(echo "scale=2; $total_swap / 1024" | bc)
+    totalSWAP=$(echo $total_swap_count)
+    totalSWAP2=$(echo $total_swap_count MiB)
+fi
+echo " Swap Free $availableSWAP $availableSWAP2"
 
 
 
