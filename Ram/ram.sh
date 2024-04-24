@@ -55,7 +55,8 @@ fi
 echo "Total Ram Count $installedMem"
 
 #Bar RAM
-percentage=$(echo "($totalresult / $installedMem) * 100" | bc)
+getPercent=$(echo "scale=2; ($totalresult / $installedMem) * 100" | bc )
+percentage=$(printf "%.0f" "$getPercent")
 echo "$percentage"
 
 
