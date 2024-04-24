@@ -16,9 +16,12 @@ trap cleanup EXIT
 clear
 
 
-echo -n "------------BEFORE------------"
-echo -n "\n"
+
+
 watch -n1 -tc -g '
+echo -n "------------BEFORE------------"
+echo ""
+echo ""
 #RAM
 #Count Used Ram
 used=$(free -w | awk "NR==2 {print \$3}")
@@ -147,7 +150,7 @@ echo -n "\n"
 sudo sync && echo 3 > /proc/sys/vm/drop_caches
 wait
 
-echo -n "------------AFTER------------"
+echo "------------AFTER------------"
 echo -n "\n"
 
 watch -n1 -tc -g '
