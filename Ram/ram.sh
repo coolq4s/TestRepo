@@ -51,7 +51,7 @@ else
     installedMem2=$(echo $totalmemInstalled MiB)
 fi
 
-echo "Total Ram Count $installedMem2"
+echo "Total Ram Count $installedMem"
 
 '
 
