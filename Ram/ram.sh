@@ -31,7 +31,7 @@ echo "$totalMemUsed"
 
 
 if [ $totalMemUsed -ge 1024 ]; then
-    totaluse=$(echo "scale=2; $totalMemUsed / 1024" | bc) # Convert to GiB
+    totaluse=$(echo "scale=2; $totalMemUsed / 1024 / 1024" | bc) # Convert to GiB
     echo "Total memory used: $totaluse GiB"
 else
     totaluse=$(echo "scale=2; $totalMemUsed / 1024" | bc) # Convert to MiB
