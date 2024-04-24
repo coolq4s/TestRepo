@@ -140,6 +140,9 @@ draw_progress_bar_SWAP() {
 draw_progress_bar_SWAP
 echo -n "\n"
 echo -n "\n"
+
+&&
+read -p " Press"
 '
 clear
 #sudo sync && echo 3 > /proc/sys/vm/drop_caches
