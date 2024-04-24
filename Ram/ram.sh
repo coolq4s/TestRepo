@@ -86,7 +86,8 @@ draw_progress_bar_RAM() {
 
 draw_progress_bar_RAM
 
-#
+#SWAP
+#Used SWAP
 
 '
 #sudo sync && echo 3 > /proc/sys/vm/drop_caches
