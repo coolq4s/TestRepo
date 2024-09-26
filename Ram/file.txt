@@ -1,0 +1,22 @@
+:local countUser [/interface print count where name~"pppoe-$user"];
+
+:if ($countUser > 1) do={
+    /ppp active remove [find name=$user];
+    /log warning "Remove multiple connection user : $user";
+    /queue simple remove [find name=$user]
+} else={
+    :local getClientIP [/ppp secret get $user remote-address]
+    :local userIdentity [/ppp secret get $user comment]
+    /queue simple add name=$user max-limit=1500k/4M parent=Total-PPPoE queue=PPPoE-Upload/PPPoE-Download target=$getClientIP
+    /tool fetch keep-result=no url="https://api.telegram.org/bot6182073127:AAGrrHxjD5w1gKngNpKmEc2Lm4AhmoxCsgA/sendMessage?chat_id=5178156845&text=%E2%9C%85%0AStatus %3A%20Connected to server%0AClient %3A%20$userIdentity%0ARemote IP %3A%20 http%3A%2F%2F$getClientIP"
+    #set NetWatch
+    :local findDuplicateHost [/tool netwatch print count where host=$getClientIP]
+    :if ($findDuplicateHost = 0) do={
+        /tool netwatch add host=$getClientIP interval=00:10:00 timeout="1" up="" down=":if ([/ping $getClientIP interval=1 count=30] > 15) do={ \n    /tool netwatch disable [find host=$getClientIP] \n    /tool netwatch enable [find host=$getClientIP] \n} else={ \n    /log warning \"$userIdentity is DOWN\" \n    /tool fetch keep-result=no url=\"https://api.telegram.org/bot6182073127:AAGrrHxjD5w1gKngNpKmEc2Lm4AhmoxCsgA/sendMessage?chat_id=5178156845&text=%E2%9D%8C%0AStatus %3A%20Disconnect%0AClient %3A%20$userIdentity%0AReason %3A%20Timeout\"\n}" comment="$userIdentity"
+    } else={
+        /tool netwatch remove [find host=$getClientIP]
+        /tool netwatch add host=$getClientIP interval=00:10:00 timeout="1" up="" down=":if ([/ping $getClientIP interval=1 count=30] > 15) do={ \n    /tool netwatch disable [find host=$getClientIP] \n    /tool netwatch enable [find host=$getClientIP] \n} else={ \n    /log warning \"$userIdentity is DOWN\" \n    /tool fetch keep-result=no url=\"https://api.telegram.org/bot6182073127:AAGrrHxjD5w1gKngNpKmEc2Lm4AhmoxCsgA/sendMessage?chat_id=5178156845&text=%E2%9D%8C%0AStatus %3A%20Disconnect%0AClient %3A%20$userIdentity%0AReason %3A%20Timeout\"\n}" comment="$userIdentity"
+    }
+    /log warning "$user logged in";
+    /queue simple add name=$user max-limit=1500k/4M parent=Total-PPPoE queue=PPPoE-Upload/PPPoE-Download target=$getClientIP
+}
